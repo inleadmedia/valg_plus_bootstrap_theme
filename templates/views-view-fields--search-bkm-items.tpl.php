@@ -25,37 +25,60 @@
  */
 ?>
 <?php
-	// Left and right columns of show more
-	$left_col_fields = array('field-faust-number', 'field-isbn', 'field-author', 'field-dk5', 'field-tags');
-	$right_col_fields = array('field-publication-date', 'field-pages', 'field-binding-type', 'field-publisher', 'field-audience');
-	$left_col = $right_col = '<div class="col-xs-12 col-sm-6"><table class="table table-hover table-bordered table-striped">';
+  // Left and right columns of show more
+  $left_col_fields = array(
+    'field-faust-number',
+    'field-isbn',
+    'field-author',
+    'field-dk5',
+    'field-language',
+    'field-publisher',
+    'field-publication-date',
+  );
+  $right_col_fields = array(
+    'field-group',
+    'field-pages',
+    'field-binding-type',
+    'field-title-complete',
+    'field-audience',
+    'field-tags',
+  );
 
-	// Description and review blocks
-	$field_description = 'field-backside-description';
-	$field_review = 'field-review';
-	$field_review_block = $field_description_block = '<div class="col-xs-12 col-sm-6"><pre>';
+  $left_col = $right_col = '<div class="col-xs-12 col-sm-6"><table class="table table-bordered table-condensed table-striped table-responsive">';
 
-	foreach ($fields as $id => $field) {
-		// Populating left column
-		if (in_array($field->class, $left_col_fields)) {
-			$left_col .= '<tr class=' . $field->class . '><td><b>' . $field->label . '</b></td><td>' . $field->content . '</td></tr>';
-		}
-		// Populating right column
-		elseif (in_array($field->class, $right_col_fields)) {
-			$right_col .= '<tr class=' . $field->class . '><td><b>' . $field->label . '</b></td><td>' . $field->content . '</td></tr>';
-		}
-		elseif($field->class === $field_description) {
-			$field_review_block .= '<div class="' . $field->class .'"><h4>' . $field->label . '</h4><div class="' . $field->class . '-content">' .  $field->content . '</div>';
-		}
-		elseif($field->class === $field_review) {
-			$field_description_block .= '<div class="' . $field->class .'"><h4>' . $field->label . '</h4><div class="' . $field->class . '-content">' .  $field->content . '</div>';
-		}
-	}
+  // Description and review blocks
+  $field_description = 'field-backside-description';
+  $field_review = 'field-review';
+  $field_review_block = $field_description_block = '<div class="col-xs-12 col-sm-6">';
 
-	$left_col .= '</table></div>';
-	$right_col .= '</table></div>';
-	$field_review_block .= '</pre></div>';
-	$field_description_block .= '</pre></div>';
 
-	print '<div class="container-fluid"><div class="row">' . $left_col . $right_col . '</div><div class="row">' . $field_review_block . $field_description_block . '</div></div>';
+  foreach ($fields as $id => $field) {
+    // Generic column setup.
+    $column_values = '<tr class=' . $field->class . '>' . '<td>' . $field->label_html . '</td>' . '<td>' . $field->content . '</td>' . '</tr>';
+
+    if (in_array($field->class, $left_col_fields)) {
+      $left_col .= $column_values;
+    }
+    elseif (in_array($field->class, $right_col_fields)) {
+      $right_col .= $column_values;
+    }
+
+    // Generic text setup.
+    $text_block = $field->wrapper_prefix . '<div class="panel-heading">' . $field->label_html . '</div>' . $field->content . $field->wrapper_suffix;
+
+    if($field->class === $field_description) {
+      $field_review_block .= $text_block;
+    }
+    elseif($field->class === $field_review) {
+      $field_description_block .= $text_block;
+    }
+  }
+
+  $left_col .= '</table></div>';
+  $right_col .= '</table></div>';
+  $field_review_block .= '</div>';
+  $field_description_block .= '</div>';
+
+  print '<div class="container-fluid"><div class="row">' . $left_col . $right_col . '</div><div class="row">' . $field_review_block . $field_description_block . '</div></div>';
 ?>
+
