@@ -46,14 +46,14 @@
             <?php print $widget->widget; ?>
           </div>
           <?php if (!empty($widget->description)): ?>
-            <div class="panel-footer">
+            <div class="panel-footer hidden-xs">
               <small><?php print $widget->description; ?></small>
             </div>
           <?php endif; ?>
           </div>
         <?php endforeach; ?>
         <?php if (!empty($sort_by)): ?>
-          <div class="well">
+          <div class="well hidden-xs">
             <?php print $sort_by; ?>
             <?php print $sort_order; ?>
           </div>
@@ -66,7 +66,7 @@
             <?php endif; ?>
           </div>
         <?php endif; ?>
-        <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group btn-group-justified hidden-xs" role="group">
           <?php if (!empty($reset_button)): ?>
             <div class="btn-group" role="group">
               <?php print $reset_button; ?>

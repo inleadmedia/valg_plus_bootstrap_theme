@@ -49,12 +49,12 @@
   // Description and review blocks
   $field_description = 'field-backside-description';
   $field_review = 'field-review';
-  $field_review_block = $field_description_block = '<div class="col-xs-12 col-sm-6">';
+  $field_review_block = $field_description_block = '<div class="col-xs-12 col-md-6">';
 
 
   foreach ($fields as $id => $field) {
     // Generic column setup.
-    $column_values = '<tr class=' . $field->class . '>' . '<td>' . $field->label_html . '</td>' . '<td>' . $field->content . '</td>' . '</tr>';
+    $column_values = '<tr class=' . $field->class . '>' . '<td class="col-lg-4 col-md-5 col-sm-4 col-xs-6">' . $field->label_html . '</td>' . '<td>' . $field->content . '</td>' . '</tr>';
 
     if (in_array($field->class, $left_col_fields)) {
       $left_col .= $column_values;
