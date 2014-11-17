@@ -45,7 +45,7 @@ $star       = '<span aria-hidden="true" class="glyphicon glyphicon-star"></span>
 $star_empty = '<span aria-hidden="true" class="glyphicon glyphicon-star-empty"></span>';
 
 // Group for stars.
-print '<p class="lead"><span class="label label-default label-lg label-' . $class . '">';
+print '<span class="btn btn-lg disabled text-' . $class . '">';
 
 // Loop.
 $max_rating = 6;
@@ -58,6 +58,6 @@ for ($x = 0; $x < $max_rating; $x++) {
   }
 }
 
-print '</span></p>';
+print '</span>';
 
 ?>
