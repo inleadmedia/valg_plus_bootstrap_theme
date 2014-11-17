@@ -25,10 +25,20 @@
 $rating = $row->field_data_field_rating_field_rating_value;
 
 // Class definitions.
-if     ($rating == '1') { $class = 'danger';  }
-elseif ($rating == '2') { $class = 'warning'; }
-elseif ($rating == '3') { $class = 'info';    }
-else                    { $class = 'success'; }
+switch ($rating) {
+  case '0':
+  case '1':
+    $class = 'danger';
+    break;
+  case '2':
+    $class = 'warning';
+    break;
+  case '3':
+    $class = 'info';
+    break;
+  default:
+    $class = 'success';
+}
 
 // Star defintions.
 $star       = '<span aria-hidden="true" class="glyphicon glyphicon-star"></span>';
@@ -38,9 +48,15 @@ $star_empty = '<span aria-hidden="true" class="glyphicon glyphicon-star-empty"><
 print '<p class="lead"><span class="label label-default label-lg label-' . $class . '">';
 
 // Loop.
-  for ($x = 0; $x < $rating; $x++) {
+$max_rating = 6;
+for ($x = 0; $x < $max_rating; $x++) {
+  if ($x < $rating) {
     echo $star;
   }
+  else {
+    echo $star_empty;
+  }
+}
 
 print '</span></p>';
 
