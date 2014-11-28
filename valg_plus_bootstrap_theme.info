@@ -33,6 +33,15 @@ stylesheets[all][] = css/style.css
 
 plugins[panels][layouts] = layouts
 
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+; For more information see: https://www.drupal.org/node/2121203
+scripts[] = js/befFix.js
+
+
 ; For information on choosing the desired method, please read the Drupal
 ; Bootstrap sub-theme "how-to" documentation:
 ; https://drupal.org/node/1978010
