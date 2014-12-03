@@ -2,3 +2,25 @@
   line-height: 46px;
 }
 
+.views-field-field-backside-description {
+  font-size: 190%;
+}
+
+.views-field-field-backside-description span {
+  display: block;
+  margin-bottom: 5px;
+  width: 170px;
+}
+
+.view-search-bkm-items .backside-description,
+.view-search-bkm-items .backside-description {
+  padding: 5px;
+}
+
+.view-search-bkm-items .red {
+  background-color: red;
+}
+
+.view-search-bkm-items .green {
+  background-color: green;
+}
