@@ -6,22 +6,3 @@
 .views-field-field-rating {
   font-size: 190%;
 }
-
-.views-field-field-backside-description span {
-  display: block;
-  margin-bottom: 5px;
-  width: 170px;
-}
-
-.view-bkm-item-list .backside-description,
-.view-bkm-item-list .backside-description {
-  padding: 5px;
-}
-
-.view-bkm-item-list .red {
-  background-color: red;
-}
-
-.view-bkm-item-list .green {
-  background-color: green;
-}
