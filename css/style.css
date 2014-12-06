@@ -1,3 +1,7 @@
 .navbar-nav > li > a {
   line-height: 46px;
 }
+
+.views-field-field-rating {
+  font-size: 190%;
+}
