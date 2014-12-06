@@ -21,8 +21,7 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-
-$rating = $row->field_data_field_rating_field_rating_value;
+$rating = $row->field_field_rating[0]['raw']['value'];
 
 // Class definitions.
 switch ($rating) {
@@ -38,13 +37,9 @@ switch ($rating) {
   default:
     $class = 'danger';
 }
-
-// Output.
-print '<span style="font-size: 190%;">';
-  print '<span class="label label-' . $class . '">';
-    print '<span aria-hidden="true" class="glyphicon glyphicon-star"></span> ' . $rating;
-  print '</span>';
-print '</span>';
-
 ?>
-
+<span>
+  <span class="label label-<?php echo $class; ?>">
+    <span aria-hidden="true" class="glyphicon glyphicon-star"></span> <?php echo $rating; ?>
+  </span>
+</span>
