@@ -80,5 +80,3 @@
   $field_description_block .= '</div>';
 
   print '<div class="container-fluid"><div class="row">' . $left_col . $right_col . '</div><div class="row">' . $field_review_block . $field_description_block . '</div></div>';
-?>
-
