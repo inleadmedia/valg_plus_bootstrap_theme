@@ -30,9 +30,9 @@ $allowed_roles = array(
   'moderator',
 );
 
-if ($view->current_display == 'page_1' && array_intersect($allowed_roles, $user->roles)) {
+if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, $user->roles)) {
   print $output;
 }
-elseif($view->current_display != 'page_1') {
+elseif($view->current_display != 'panel_pane_1') {
   print $output;
 }
