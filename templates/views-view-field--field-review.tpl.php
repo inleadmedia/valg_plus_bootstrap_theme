@@ -34,5 +34,32 @@ if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, 
   print $output;
 }
 elseif($view->current_display != 'panel_pane_1') {
-  print $output;
+  $empty_prefix = '<div class="panel-body alert-warning">';
+  $empty_suffix = '</div>';
+  $empty_text = '<strong>Sorry!</strong> No backside description available.';
+  $output_prefix = '<div class="panel-body"><blockquote>';
+  $output_suffix = '<footer>- <cite title="DBC">DBC</cite></footer></blockquote></div>';
+
+  $editable_fields = valg_quickedit_get_fields();
+
+  if (array_key_exists($field->field, $editable_fields)) {
+    $editable_prefix = '<span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="textarea">';
+    $editable_suffix = '</span>';
+    if (empty($output)) {
+      print $empty_prefix . $editable_prefix . $empty_text . $editable_suffix . $empty_suffix;
+    }
+    else {
+      print $output_prefix .
+        '<p class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="textarea">' . $output . '</p>' .
+        $output_suffix;
+    }
+  }
+  else {
+    if (empty($output)) {
+      print $empty_prefix . $empty_text . $empty_suffix;
+    }
+    else {
+      print $output_prefix . '<p>' . $output . '</p>' . $output_suffix;
+    }
+  }
 }
