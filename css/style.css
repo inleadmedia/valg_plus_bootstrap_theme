@@ -58,6 +58,18 @@
   width: 128px;
 }
 
+.view-id-bkm_item_list.view-display-id-panel_pane_small_list .views-field-title {
+  width: 610px;
+}
+
+.view-id-bkm_item_list.view-display-id-panel_pane_small_list .views-field-field-rating {
+  width: 82px;
+}
+
+.view-id-bkm_item_list.view-display-id-panel_pane_small_list .views-field-nid {
+  width: 132px;
+}
+
 .pane-bkm-item-list-panel-pane-small-list, .pane-bkm-item-list-panel-pane-gallery-list {
   display: none;
 }
