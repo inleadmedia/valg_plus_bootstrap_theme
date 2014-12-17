@@ -29,7 +29,7 @@
     <div class="">
       <div class="">
         <?php foreach ($widgets as $id => $widget): ?>
-          <div class="panel panel-default">
+          <div class="panel panel-default <?php print drupal_html_class($id) ?>">
           <?php if (!empty($widget->label)): ?>
             <div class="panel-heading">
               <h3 class="panel-title">
