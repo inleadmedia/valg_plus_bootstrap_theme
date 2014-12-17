@@ -48,7 +48,7 @@ elseif($view->current_display != 'panel_pane_1') {
     }
     else {
       print $output_prefix .
-        '<p class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="textarea">' . $output . '</p>' .
+        '<div class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="textarea">' . $output . '</div>' .
         $output_suffix;
     }
   }
