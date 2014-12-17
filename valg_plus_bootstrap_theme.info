@@ -40,6 +40,7 @@ plugins[panels][layouts] = layouts
 
 ; For more information see: https://www.drupal.org/node/2121203
 scripts[] = js/befFix.js
+scripts[] = js/valg_plus_bootstrap_scripts.js
 
 
 ; For information on choosing the desired method, please read the Drupal
@@ -49,11 +50,11 @@ scripts[] = js/befFix.js
 ; ;----------------------------------
 ; ; METHOD 1: Bootstrap Source Files
 ; ;----------------------------------
-; 
+;
 ; ;;;;;;;;;;;;;;;;;;;;;
 ; ;; Scripts
 ; ;;;;;;;;;;;;;;;;;;;;;
-; 
+;
 ; scripts[] = 'bootstrap/js/affix.js'
 ; scripts[] = 'bootstrap/js/alert.js'
 ; scripts[] = 'bootstrap/js/button.js'
