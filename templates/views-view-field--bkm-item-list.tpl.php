@@ -21,10 +21,13 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-?>
-<?php
+
+// @todo
+// Believe all this info should be available in the view object.
+$field_info = field_info_field($field->field);
 $editable_fields = variable_get('valg_quickedit_enabled_fields', array());
-if (array_key_exists($field->field, $editable_fields)) {
+
+/*if (array_key_exists($field->field, $editable_fields)) {
   $title_attr = 'data-title="' . $field->definition['title'] . '"';
   $taxonomy_fields = variable_get('valg_quickedit_taxonomy_fields', array());
   $data_type = (!empty($taxonomy_fields) && in_array($field->field, $taxonomy_fields)) ? 'select2' : 'text';
@@ -34,7 +37,14 @@ if (array_key_exists($field->field, $editable_fields)) {
 
   print '<span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="' . $data_type . '"' . $title_attr . '>' . $output . '</span>';
 }
+else*/if ($field_info['type'] == 'taxonomy_term_reference') {
+  $nid = $row->{$field->field_alias};
+  $node = node_load($nid);
+  $entity = entity_metadata_wrapper('node', $node);
+  $tid = $entity->{$field->field}->value()->tid;
+  $term = taxonomy_term_load($tid);
+  echo l($term->name, '', array('query' => array($field->field . '_tid[]' => $tid)));
+}
 else {
   print $output;
 }
-?>

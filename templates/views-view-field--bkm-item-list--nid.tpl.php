@@ -21,16 +21,5 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-?>
-<?php
-  $editable_fields = variable_get('valg_quickedit_enabled_fields', array());
-  if (array_key_exists($field->field, $editable_fields)) {
-    $data_type = 'select2';
-    print '<label>by:</label>
-           <a href="?field_author_tid=&quot;' . $output . '&quot;">
-              <span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="' . $data_type . '">' . $output . '</span>
-          </a>';
-  }
-  else {
-    print '<label>by:</label><a href="?field_author_tid[]=&quot;' . $output . '&quot;">' . $output . '</a>';
-  }
+
+print l(t('Expand'), 'valg/bkm/showmore/' . $row->nid, array('attributes' => array('id' => 'valg-show-more-' . $row->nid,'class' => array('btn', 'btn-lg', 'btn-default', 'btn-info', 'valg-show-more'))));
