@@ -25,8 +25,19 @@
 // @todo
 // Believe all this info should be available in the view object.
 $field_info = field_info_field($field->field);
+$editable_fields = variable_get('valg_quickedit_enabled_fields', array());
 
-if ($field_info['type'] == 'taxonomy_term_reference') {
+if (array_key_exists($field->field, $editable_fields)) {
+  $title_attr = 'data-title="' . $field->definition['title'] . '"';
+  $taxonomy_fields = variable_get('valg_quickedit_taxonomy_fields', array());
+  $data_type = (!empty($taxonomy_fields) && in_array($field->field, $taxonomy_fields)) ? 'select2' : 'text';
+  if ($field->field == 'field_publication_date') {
+    $title_attr = 'data-title="E.g. 01/25/2014"';
+  }
+
+  print '<span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="' . $data_type . '"' . $title_attr . '>' . $output . '</span>';
+}
+elseif ($field_info['type'] == 'taxonomy_term_reference') {
   $nid = $row->{$field->field_alias};
   $node = node_load($nid);
   $entity = entity_metadata_wrapper('node', $node);
