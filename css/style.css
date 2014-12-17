@@ -37,3 +37,23 @@
   clear: both;
   float: none;
 }
+
+.view-bkm-item-list.view-display-id-panel_pane_1 .views-field-field-bkm-image {
+  width: 100px;
+}
+
+.view-bkm-item-list.view-display-id-panel_pane_1 .views-field-title {
+  width: 390px;
+}
+
+.view-bkm-item-list.view-display-id-panel_pane_1 .views-field-field-backside-description {
+  width: 128px;
+}
+
+.view-bkm-item-list.view-display-id-panel_pane_1 .views-field-field-rating {
+  width: 65px;
+}
+
+.view-bkm-item-list.view-display-id-panel_pane_1 .views-field-nid {
+  width: 128px;
+}
