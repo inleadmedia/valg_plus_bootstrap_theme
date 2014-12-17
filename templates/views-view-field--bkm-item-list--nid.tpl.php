@@ -22,4 +22,4 @@
  * the view is modified.
  */
 
-print l(t('Expand'), 'valg/bkm/showmore/' . $row->nid, array('attributes' => array('id' => 'valg-show-more-' . $row->nid,'class' => array('btn', 'btn-lg', 'btn-default', 'btn-info', 'valg-show-more'))));
+print l(t('Expand'), 'valg/bkm/showmore/' . $row->nid, array('attributes' => array('id' => 'valg-show-more-' . $row->nid, 'class' => array('btn', 'btn-lg', 'btn-default', 'btn-info', 'valg-show-more', 'valg-show-more-' . $row->nid))));
