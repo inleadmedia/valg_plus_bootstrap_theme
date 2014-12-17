@@ -40,7 +40,7 @@ elseif($view->current_display != 'panel_pane_1') {
   $output_prefix = '<div class="panel-body"><blockquote>';
   $output_suffix = '<footer>- <cite title="DBC">DBC</cite></footer></blockquote></div>';
 
-  $editable_fields = valg_quickedit_get_fields();
+  $editable_fields = variable_get('valg_quickedit_enabled_fields', array());
 
   if (array_key_exists($field->field, $editable_fields)) {
     $editable_prefix = '<span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="textarea">';
