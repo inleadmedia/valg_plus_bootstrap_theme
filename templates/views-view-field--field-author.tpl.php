@@ -32,6 +32,5 @@
           </a>';
   }
   else {
-    print '<label>by:</label><a href="?field_author_tid=&quot;' . $output . '&quot;">' . $output . '</a>';
+    print '<label>by:</label><a href="?field_author_tid[]=&quot;' . $output . '&quot;">' . $output . '</a>';
   }
-?>
