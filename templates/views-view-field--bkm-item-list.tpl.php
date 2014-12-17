@@ -40,10 +40,14 @@ if (array_key_exists($field->field, $editable_fields)) {
 elseif ($field_info['type'] == 'taxonomy_term_reference') {
   $nid = $row->{$field->field_alias};
   $node = node_load($nid);
-  $entity = entity_metadata_wrapper('node', $node);
-  $tid = $entity->{$field->field}->value()->tid;
-  $term = taxonomy_term_load($tid);
-  echo l($term->name, '', array('query' => array($field->field . '_tid[]' => $tid)));
+  if (is_object($node)) {
+    $entity = entity_metadata_wrapper('node', $node);
+    if (isset($entity->{$field->field}->value()->tid)) {
+      $tid = $entity->{$field->field}->value()->tid;
+      $term = taxonomy_term_load($tid);
+      echo l($term->name, '', array('query' => array($field->field . '_tid[]' => $tid)));
+    }
+  }
 }
 else {
   print $output;
