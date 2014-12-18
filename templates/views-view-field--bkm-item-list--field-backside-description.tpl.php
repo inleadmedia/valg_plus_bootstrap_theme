@@ -35,8 +35,8 @@ elseif($view->current_display != 'panel_pane_1') {
   $empty_prefix = '<div class="panel-body alert-warning">';
   $empty_suffix = '</div>';
   $empty_text = '<strong>Sorry!</strong> No backside description available.';
-  $output_prefix = '<div class="panel-body"><blockquote>';
-  $output_suffix = '<footer>- <cite title="biblioteksmedier.dk">Biblioteksmedier.dk</cite></footer></blockquote></div>';
+  $output_prefix = '<div class="panel-body">';
+  $output_suffix = '</div>';
 
   $editable_fields = variable_get('valg_quickedit_enabled_fields', array());
 

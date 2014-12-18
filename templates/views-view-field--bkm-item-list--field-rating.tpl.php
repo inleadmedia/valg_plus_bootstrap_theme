@@ -38,7 +38,7 @@ switch ($rating) {
     $class = 'danger';
 }
 ?>
-<span>
+<span class="rating">
   <span class="label label-<?php echo $class; ?>">
     <span aria-hidden="true" class="glyphicon glyphicon-star"></span> <?php echo $rating; ?>
   </span>

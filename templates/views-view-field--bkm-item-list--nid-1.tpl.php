@@ -26,11 +26,9 @@
 <?php $count = valg_bkm_show_count($output); ?>
 
   <?php if ($count && is_numeric($count)) : ?>
-    <strong><?php print $count; ?></strong>
+  <h4 class="text-center"><?php print $count; ?><br /><small>eks.</small></h4>
   <?php else : ?>
     <?php $data_content = t("Item has either been automatically deselected based on your profile, or you have used all of your budget."); ?>
-    <button data-toggle="popover" type="button" class="btn btn-sm btn-count" data-placement="left" data-content="<?php print $data_content; ?>">
-      <?php print t('Reason'); ?>
-    </button>
+    <h4 class="text-center" data-toggle="popover" data-trigger="hover" data-placement="left" data-title="<?php print t('Reason'); ?>" data-content="<?php print $data_content; ?>">0<br /><small><?php print t('Reason'); ?></small></h4>
   <?php endif; ?>
 <?php endif; ?>
