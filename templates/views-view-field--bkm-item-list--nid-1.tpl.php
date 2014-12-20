@@ -23,12 +23,18 @@
  */
 ?>
 <?php if (in_array('purchaser', $user->roles)) : ?>
-<?php $count = valg_bkm_show_count($output); ?>
+  <?php $count = valg_bkm_show_count($output); ?>
+  <?php $data_content = t("Item has either been automatically deselected based on your profile, or you have used all of your budget."); ?>
 
-  <?php if ($count && is_numeric($count)) : ?>
-  <h4 class="text-center"><?php print $count; ?><br /><small>eks.</small></h4>
-  <?php else : ?>
-    <?php $data_content = t("Item has either been automatically deselected based on your profile, or you have used all of your budget."); ?>
-    <h4 class="text-center" data-toggle="popover" data-trigger="hover" data-placement="left" data-title="<?php print t('Reason'); ?>" data-content="<?php print $data_content; ?>">0<br /><small><?php print t('Reason'); ?></small></h4>
-  <?php endif; ?>
+  <span class="text-center"> 
+    <div>
+      <strong><?php print t('Purchase proposal'); ?></strong>:
+    </div> 
+    <div>
+      <?php if ($count && is_numeric($count)) : ?>
+        <span class="badge"><?php print $count; ?></span> <?php print t('materials'); ?>
+      <?php else : ?>
+        <abbr data-toggle="popover" data-trigger="hover" data-placement="left" data-title="<?php print t('Description of reason'); ?>" data-content="<?php print $data_content; ?>"><?php print t('No materials'); ?></abbr>
+      <?php endif; ?>
+    </div>
 <?php endif; ?>
