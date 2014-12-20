@@ -17,6 +17,11 @@
 
 .views-field-field-bkm-image img {
   cursor: pointer;
+  -moz-box-shadow: 3px 3px 3px #888;
+  -webkit-box-shadow: 3px 3px 3px #888;
+  box-shadow: 3px 3px 3px #888;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#888888')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#888888');
 }
 
 .pane-views-exp-bkm-item-list-panel-pane-1.limited-exposed-filters .panel.panel-default:not(.filter-keys):not(.sort-sort-bef-combine),
