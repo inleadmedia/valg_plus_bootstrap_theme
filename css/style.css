@@ -9,6 +9,11 @@
 .views-field-title h4 {
   text-decoration: underline;
   cursor: pointer;
+  margin: 0 0 5px 0;
+}
+
+.views-field-field-bkm-image img {
+  cursor: pointer;
 }
 
 .pane-views-exp-bkm-item-list-panel-pane-1.limited-exposed-filters .panel.panel-default:not(.filter-keys):not(.sort-sort-bef-combine),
