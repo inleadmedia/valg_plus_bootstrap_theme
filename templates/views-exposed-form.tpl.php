@@ -36,6 +36,12 @@
                 <?php print $widget->label; ?>
               </h3>
             </div>
+          <?php elseif ($widget->id == "edit-sort-bef-combine"): ?>
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <?php print t('Sort by'); ?>
+              </h3>
+            </div>
           <?php endif; ?>
           <?php if (!empty($widget->operator)): ?>
             <div class="views-operator">
@@ -59,11 +65,18 @@
           </div>
         <?php endif; ?>
         <?php if (!empty($items_per_page)): ?>
-          <div class="well">
-            <?php print $items_per_page; ?>
-            <?php if (!empty($offset)): ?>
+          <div class="panel panel-default items-per-page">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <?php print t('Items per page'); ?>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <?php print $items_per_page; ?>
+              <?php if (!empty($offset)): ?>
                 <?php print $offset; ?>
-            <?php endif; ?>
+              <?php endif; ?>
+            </div>
           </div>
         <?php endif; ?>
         <div class="btn-group btn-group-justified hidden-xs" role="group">
