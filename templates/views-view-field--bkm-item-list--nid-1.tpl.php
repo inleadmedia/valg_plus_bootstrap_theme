@@ -24,7 +24,7 @@
 ?>
 <?php if (in_array('purchaser', $user->roles)) : ?>
   <?php $count = valg_bkm_show_count($output); ?>
-  <?php $data_content = t("Item has either been automatically deselected based on your profile, or you have used all of your budget."); ?>
+  <?php $data_content = t('Item has either been automatically deselected based on your profile, or you have used all of your budget.'); ?>
 
   <span class="text-center"> 
     <div>
