@@ -34,7 +34,7 @@ if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, 
 elseif($view->current_display != 'panel_pane_1') {
   $empty_prefix = '<div class="panel-body alert-warning">';
   $empty_suffix = '</div>';
-  $empty_text = '<strong>Sorry!</strong> No backside description available.';
+  $empty_text = t('<strong>Sorry!</strong> No backside description available.');
   $output_prefix = '<div class="panel-body">';
   $output_suffix = '</div>';
 
