@@ -45,7 +45,9 @@ elseif ($field_info['type'] == 'taxonomy_term_reference') {
     if (isset($entity->{$field->field}->value()->tid)) {
       $tid = $entity->{$field->field}->value()->tid;
       $term = taxonomy_term_load($tid);
-      echo l($term->name, '', array('query' => array($field->field . '_tid[]' => $tid)));
+      // @todo
+      // Not the best way to translate field values though.
+      echo l(t($term->name), '', array('query' => array($field->field . '_tid[]' => $tid)));
     }
   }
 }
