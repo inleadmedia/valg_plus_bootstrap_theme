@@ -16,9 +16,12 @@
 }
 
 .pane-bkm-item-list-panel-pane-1 .views-field-field-bkm-image img,
-.pane-bkm-item-list-panel-pane-gallery-list .thumbnail img,
 .pane-bkm-item-list-panel-pane-gallery-list .thumbnail {
   cursor: pointer;
+}
+
+.pane-bkm-item-list-panel-pane-1 .views-field-field-bkm-image img,
+.pane-bkm-item-list-panel-pane-gallery-list .thumbnail img {
   -moz-box-shadow: 3px 3px 3px #888;
   -webkit-box-shadow: 3px 3px 3px #888;
   box-shadow: 3px 3px 3px #888;
