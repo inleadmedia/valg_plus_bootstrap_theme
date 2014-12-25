@@ -18,6 +18,17 @@
     * @ingroup views_templates
     */
     ?>
+    <?php
+      if (isset($widgets['filter-keys'])) {
+        $markup = '<div class="input-group form-type-textfield form-item-keys form-item form-group">
+          <input placeholder="Search" title="Enter the terms you wish to search for." class="form-control form-text" data-toggle="tooltip" type="text" id="edit-keys" name="keys" value="" size="15" maxlength="128" />
+          <span class="input-group-btn"><button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+        </div>';
+
+        $widgets['filter-keys']->widget = $markup;
+      }
+    ?>
+
     <?php if (!empty($q)): ?>
       <?php
       // This ensures that, if clean URLs are off, the 'q' is added first so that
@@ -34,6 +45,12 @@
             <div class="panel-heading">
               <h3 class="panel-title">
                 <?php print $widget->label; ?>
+              </h3>
+            </div>
+          <?php elseif ($widget->id == "edit-sort-bef-combine"): ?>
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <?php print t('Sort by'); ?>
               </h3>
             </div>
           <?php endif; ?>
@@ -59,11 +76,18 @@
           </div>
         <?php endif; ?>
         <?php if (!empty($items_per_page)): ?>
-          <div class="well">
-            <?php print $items_per_page; ?>
-            <?php if (!empty($offset)): ?>
+          <div class="panel panel-default items-per-page">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <?php print t('Items per page'); ?>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <?php print $items_per_page; ?>
+              <?php if (!empty($offset)): ?>
                 <?php print $offset; ?>
-            <?php endif; ?>
+              <?php endif; ?>
+            </div>
           </div>
         <?php endif; ?>
         <div class="btn-group btn-group-justified hidden-xs" role="group">
@@ -78,4 +102,3 @@
         </div>
       </div>
     </div>
-

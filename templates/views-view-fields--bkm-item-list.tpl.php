@@ -31,6 +31,7 @@
     'field-isbn',
     'field-author',
     'field-dk5',
+    'field-price',
     'field-language',
     'field-publisher',
     'field-publication-date',
