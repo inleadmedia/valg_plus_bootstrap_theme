@@ -30,7 +30,7 @@
 }
 
 .pane-views-exp-bkm-item-list-panel-pane-1.limited-exposed-filters .panel.panel-default:not(.filter-keys):not(.sort-sort-bef-combine):not(.items-per-page),
-.pane-views-exp-bkm-item-list-panel-pane-1 .panel.panel-default:not(.filter-field-bkm-list-tid):not(.filter-field-group-tid):not(.filter-field-rating-value),
+.pane-views-exp-bkm-item-list-panel-pane-1 .panel.panel-default:not(.filter-field-bkm-list-tid):not(.filter-field-group-tid):not(.filter-field-rating-value):not(.filter-current-user-count),
 .pane-views-exp-bkm-item-list-panel-pane-1.limited-exposed-filters .panel.panel-default.sort-sort-bef-combine .control-label,
 .pane-views-exp-bkm-item-list-panel-pane-1.limited-exposed-filters .panel.panel-default.items-per-page .control-label {
   display: none;
