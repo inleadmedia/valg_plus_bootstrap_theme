@@ -31,7 +31,6 @@
     'field-isbn',
     'field-author',
     'field-dk5',
-    'field-price',
     'field-language',
     'field-publisher',
     'field-publication-date',
@@ -43,6 +42,7 @@
     'field-title-complete',
     'field-audience',
     'field-tags',
+    'field-price',
   );
 
   $left_col = $right_col = '<div class="col-xs-12 col-sm-6"><table class="table table-bordered table-condensed table-striped table-responsive">';
