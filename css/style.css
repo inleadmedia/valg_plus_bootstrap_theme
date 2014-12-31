@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.pane-bkm-item-list-panel-pane-gallery-list .thumbnail img {
+  margin: auto;
+}
+
 .pane-bkm-item-list-panel-pane-1 .views-field-field-bkm-image img,
 .pane-bkm-item-list-panel-pane-gallery-list .thumbnail img {
   -moz-box-shadow: 3px 3px 3px #888;
