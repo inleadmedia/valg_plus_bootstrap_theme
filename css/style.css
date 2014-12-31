@@ -133,6 +133,10 @@
   padding: 6px;
 }
 
+.pane-bkm-item-list-panel-pane-gallery-list .thumbnail .caption h3 a {
+  color: #fff;
+}
+
 .pane-bkm-item-list-panel-pane-gallery-list .thumbnail .caption h3 {
   margin-top: 2px;
   font-size: 18px;
