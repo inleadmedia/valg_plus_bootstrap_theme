@@ -21,7 +21,7 @@
     <?php
       if (isset($widgets['filter-keys'])) {
         $markup = '<div class="input-group form-type-textfield form-item-keys form-item form-group">
-          <input placeholder="Search" title="Enter the terms you wish to search for." class="form-control form-text" data-toggle="tooltip" type="text" id="edit-keys" name="keys" value="" size="15" maxlength="128" />
+          <input placeholder="' . t("Search") . '" title="' . t("Enter the terms you wish to search for.") . '" class="form-control form-text" data-toggle="tooltip" type="text" id="edit-keys" name="keys" value="" size="15" maxlength="128" />
           <span class="input-group-btn"><button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
         </div>';
 
