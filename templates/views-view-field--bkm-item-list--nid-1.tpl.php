@@ -34,7 +34,7 @@
       <?php if ($count && is_numeric($count)) : ?>
         <span class="badge"><?php print $count; ?></span> <?php print t('materials'); ?>
       <?php else : ?>
-        <abbr data-toggle="popover" data-trigger="hover" data-placement="left" data-title="<?php print t('Description of reason'); ?>" data-content="<?php print $data_content; ?>"><?php print t('No materials'); ?></abbr>
+        <abbr data-toggle="popover" data-title="<?php print t('Description of reason'); ?>" data-content="<?php print $data_content; ?>"><?php print t('No materials'); ?></abbr>
       <?php endif; ?>
     </div>
 <?php endif; ?>
