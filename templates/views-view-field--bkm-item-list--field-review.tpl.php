@@ -31,7 +31,12 @@ $allowed_roles = array(
 );
 
 if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, $user->roles)) {
-  print $output;
+  if (empty($row->field_field_review)) {
+    print '<span class="material-review label-warning label hidden-sm">' . t("Material review") . '</span>';
+  }
+  elseif (!empty($row->field_field_review)) {
+    print '<span class="material-review label-success label hidden-sm">' . t("Material review") . '</span>';
+  }
 }
 elseif($view->current_display != 'panel_pane_1') {
   $empty_prefix = '<div class="panel-body alert-warning">';

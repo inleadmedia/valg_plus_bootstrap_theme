@@ -29,7 +29,12 @@ $allowed_roles = array(
 );
 
 if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, $user->roles)) {
-  print $output;
+  if (empty($row->field_field_backside_description)) {
+    print '<span class="backside-description label-warning label hidden-sm">' . t("Backside desc.") . '</span>';
+  }
+  elseif (!empty($row->field_field_backside_description)) {
+    print '<span class="backside-description label-success label hidden-sm">' . t("Backside desc.") . '</span>';
+  }
 }
 elseif($view->current_display != 'panel_pane_1') {
   $empty_prefix = '<div class="panel-body alert-warning">';
