@@ -52,7 +52,7 @@ elseif ($field_info['type'] == 'taxonomy_term_reference') {
   }
 }
 
-if (!empty($label_html)) {
+if (!empty($label_html) && !empty($output)) {
   print $label_html;
 }
 
