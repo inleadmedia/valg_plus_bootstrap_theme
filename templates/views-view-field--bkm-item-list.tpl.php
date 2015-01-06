@@ -35,7 +35,7 @@ if (array_key_exists($field->field, $editable_fields)) {
     $title_attr = 'data-title="E.g. 01/25/2014"';
   }
 
-  print '<span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="' . $data_type . '"' . $title_attr . '>' . $output . '</span>';
+  $output = '<span class="' . $editable_fields[$field->field] . '" data-pk="' . $row->nid . '" data-name="' . $field->field . '" data-type="' . $data_type . '"' . $title_attr . '>' . $output . '</span>';
 }
 elseif ($field_info['type'] == 'taxonomy_term_reference') {
   $nid = $row->{$field->field_alias};
@@ -47,10 +47,13 @@ elseif ($field_info['type'] == 'taxonomy_term_reference') {
       $term = taxonomy_term_load($tid);
       // @todo
       // Not the best way to translate field values though.
-      echo l(t($term->name), '', array('query' => array($field->field . '_tid[]' => $tid)));
+      $output = l(t($term->name), '', array('query' => array($field->field . '_tid[]' => $tid)));
     }
   }
 }
-else {
-  print $output;
+
+if (!empty($label_html)) {
+  print $label_html;
 }
+
+print $output;

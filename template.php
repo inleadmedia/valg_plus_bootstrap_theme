@@ -78,6 +78,62 @@ function valg_plus_bootstrap_theme_preprocess_views_view(&$vars) {
 }
 
 /**
+ * Duplication of a part of the template_preprocess_views_view_fields to
+ * implement displaying of the field-label.
+ *
+ * @see template_preprocess_views_view_fields()
+ */
+function valg_plus_bootstrap_theme_preprocess_views_view_field(&$vars) {
+  $view = $vars['view'];
+  $field = $vars['field'];
+
+  switch ($view->name) {
+    case 'bkm_item_list':
+      if ($view->current_display == 'panel_pane_1') {
+        $id = $field->options['id'];
+        if (!empty($view->style_options['info'][$id]['show_title'])) {
+          $vars['label'] = check_plain($field->label());
+          $vars['label_html'] = '';
+          if ($vars['label']) {
+            $vars['label_html'] .= $vars['label'];
+            if ($field->options['element_label_colon']) {
+              $vars['label_html'] .= ': ';
+            }
+
+            $default_classes = !empty($field->options['element_default_classes']) ? $field->options['element_default_classes'] : FALSE;
+            $vars['element_label_type'] = $field->element_label_type(TRUE, !$default_classes);
+            if ($vars['element_label_type']) {
+              $class = '';
+              $field_class = drupal_clean_css_identifier($id);
+              if ($default_classes) {
+                $class = 'views-label views-label-' . $field_class;
+              }
+
+              $element_label_class = $field->element_label_classes($view->row_index);
+              if ($element_label_class) {
+                if ($class) {
+                  $class .= ' ';
+                }
+
+                $class .= $element_label_class;
+              }
+
+              $pre = '<' . $vars['element_label_type'];
+              if ($class) {
+                $pre .= ' class="' . $class . '"';
+              }
+              $pre .= '>';
+
+              $vars['label_html'] = $pre . $vars['label_html'] . '</' . $vars['element_label_type'] . '>';
+            }
+          }
+        }
+      }
+      break;
+  }
+}
+
+/**
  * Preprocess to page.tpl.php.
  */
 function valg_plus_bootstrap_theme_preprocess_page(&$vars) {
