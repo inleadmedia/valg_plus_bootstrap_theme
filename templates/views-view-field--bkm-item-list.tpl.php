@@ -52,8 +52,9 @@ elseif ($field_info['type'] == 'taxonomy_term_reference') {
   }
 }
 
-if (!empty($label_html) && !empty($output)) {
-  print $label_html;
+if (!empty($field->original_value)) {
+  if (!empty($label_html)) {
+    print $label_html;
+  }
+  print $output;
 }
-
-print $output;
