@@ -24,10 +24,13 @@
 
 // @todo
 // Believe all this info should be available in the view object.
+global $user;
+$allowed_roles = array('administrator', 'moderator');
 $field_info = field_info_field($field->field);
 $editable_fields = variable_get('valg_quickedit_enabled_fields', array());
 
-if (array_key_exists($field->field, $editable_fields)) {
+
+if (array_key_exists($field->field, $editable_fields) && in_array($user->roles, $allowed_roles)) {
   $title_attr = 'data-title="' . $field->definition['title'] . '"';
   $taxonomy_fields = variable_get('valg_quickedit_taxonomy_fields', array());
   $data_type = (!empty($taxonomy_fields) && in_array($field->field, $taxonomy_fields)) ? 'select2' : 'text';
@@ -42,12 +45,24 @@ elseif ($field_info['type'] == 'taxonomy_term_reference') {
   $node = node_load($nid);
   if (is_object($node)) {
     $entity = entity_metadata_wrapper('node', $node);
-    if (isset($entity->{$field->field}->value()->tid)) {
-      $tid = $entity->{$field->field}->value()->tid;
-      $term = taxonomy_term_load($tid);
-      // @todo
-      // Not the best way to translate field values though.
-      $output = l(t($term->name), '', array('query' => array($field->field . '_tid[]' => $tid)));
+    $ent_value = $entity->{$field->field}->value();
+
+    if (!is_array($ent_value)) {
+      $ent_value = array($ent_value);
+    }
+
+    foreach ($ent_value as $value) {
+      if (isset($value->tid)) {
+        $tid = $value->tid;
+        $term = taxonomy_term_load($tid);
+        // @todo
+        // Not the best way to translate field values though.
+        $raw_output[] = l(t($term->name), '', array('query' => array($field->field . '_tid[]' => $tid)));
+      }
+    }
+
+    if (isset($raw_output)) {
+      $output = implode(', ', $raw_output);
     }
   }
 }
