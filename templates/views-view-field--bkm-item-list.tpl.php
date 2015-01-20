@@ -28,8 +28,9 @@ global $user;
 $allowed_roles = array('administrator', 'moderator');
 $field_info = field_info_field($field->field);
 $editable_fields = variable_get('valg_quickedit_enabled_fields', array());
+$matches = array_intersect($user->roles, $allowed_roles);
 
-if (array_key_exists($field->field, $editable_fields) && !empty(array_intersect($user->roles, $allowed_roles))) {
+if (array_key_exists($field->field, $editable_fields) && !empty($matches)) {
   $title_attr = 'data-title="' . $field->definition['title'] . '"';
   $taxonomy_fields = variable_get('valg_quickedit_taxonomy_fields', array());
   $data_type = (!empty($taxonomy_fields) && in_array($field->field, $taxonomy_fields)) ? 'select2' : 'text';
