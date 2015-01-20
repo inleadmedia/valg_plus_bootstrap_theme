@@ -33,12 +33,11 @@ $allowed_roles = array(
 if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, $user->roles)) {
   $classes = array(
     'material-review',
-    'label-warning',
     'hidden-sm',
     'label',
   );
 
-  $classes[] = empty($row->field_field_review['#markup']) ? 'label-warning' : 'label-success';
+  $classes[] = empty($row->field_field_review[0]['rendered']['#markup']) ? 'label-warning' : 'label-success';
   print '<span class="' . implode(' ', $classes) . '">' . t("Material review") . '</span>';
 }
 elseif($view->current_display != 'panel_pane_1') {
