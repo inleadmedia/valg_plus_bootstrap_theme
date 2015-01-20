@@ -14,6 +14,11 @@ function valg_plus_bootstrap_theme_form_alter(&$form, &$form_state, $form_id) {
     $options = $form['field_bkm_list_tid']['#options'];
     arsort($options);
     $form['field_bkm_list_tid']['#options'] = $options;
+
+    if (empty($_GET['field_bkm_list_tid'])) {
+      $keys = array_keys($options);
+      $form_state['input']['field_bkm_list_tid'] = reset($keys);
+    }
   }
 }
 
