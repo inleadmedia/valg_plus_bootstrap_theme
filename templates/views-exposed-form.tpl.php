@@ -20,8 +20,9 @@
     ?>
     <?php
       if (isset($widgets['filter-keys'])) {
+        $search_string = filter_input(INPUT_GET, 'keys', FILTER_SANITIZE_STRING);
         $markup = '<div class="input-group form-type-textfield form-item-keys form-item form-group">
-          <input placeholder="' . t("Search") . '" title="' . t("Enter the terms you wish to search for.") . '" class="form-control form-text" data-toggle="tooltip" type="text" id="edit-keys" name="keys" value="" size="15" maxlength="128" />
+          <input placeholder="' . t("Search") . '" title="' . t("Enter the terms you wish to search for.") . '" class="form-control form-text ctools-auto-submit-exclude" data-toggle="tooltip" type="text" id="edit-keys" name="keys" value="' . $search_string . '" size="15" maxlength="128" />
           <span class="input-group-btn"><button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
         </div>';
 
