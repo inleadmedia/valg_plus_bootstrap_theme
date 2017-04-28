@@ -26,6 +26,7 @@ global $user;
 $allowed_roles = array(
   'administrator',
   'moderator',
+  'purchaser',
 );
 
 if ($view->current_display == 'panel_pane_1' && array_intersect($allowed_roles, $user->roles)) {
